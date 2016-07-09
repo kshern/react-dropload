@@ -14,18 +14,15 @@ var Dropload = React.createClass({
     var oHeight=element.clientHeight;
     var sHeight=element.scrollHeight;
     var sTop=document.body.scrollTop;
-    console.log(sHeight-oHeight-sTop)
     if(!this.state.isLockDown&&sHeight-oHeight-sTop<=40){
       this.setState({isLockDown:true})
       return this.props.handleScroll()
     }
   },
   componentDidMount:function(){
-    console.log(classes)
     window.addEventListener('scroll',this.handleScroll); 
   },
   componentWillReceiveProps(){
-    console.log(this.state.isLockDown)
     if (!this.props.isEnd) {
       this.setState({isLockDown:false})
     }
